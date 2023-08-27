@@ -9,7 +9,7 @@ public class StudentList {
 		try{
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(
-							new FileInputStream("students.txt")));
+							new FileInputStream(Constants.FILE_PATH)));
 			studentData = reader.readLine();
 
 		}catch (Exception e)
@@ -22,7 +22,7 @@ public class StudentList {
 	public static void fileWriter(String content)
 	{
 		try{BufferedWriter writer = new BufferedWriter(
-				new FileWriter("students.txt", true));
+				new FileWriter(Constants.FILE_PATH, true));
 			writer.write(content);
 			writer.close();
 
@@ -36,17 +36,15 @@ public class StudentList {
 
 //		Check arguments
 		if(args[0].equals("a")) {
-			System.out.println("Loading data ...");
-			String studentData = FileReader();
-			String studentName[] = studentData.split(",");
-			for(String name : studentName) {
+			System.out.println(Constants.LOADING_DATA);
+			for(String name : FileReader().split(Constants.SPLIT)) {
 				System.out.println(name);
 			}
-			System.out.println("Data Loaded.");
+			System.out.println(Constants.LOADED_DATA);
 		}
 		else if(args[0].equals("r")) 
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constants.LOADING_DATA);
 			String studentData = FileReader();
 			System.out.println(studentData);
 			String studentName[] = studentData.split(",");
@@ -54,43 +52,43 @@ public class StudentList {
 				int index = random.nextInt(studentName.length);
 					System.out.println(studentName[index]);
 
-			System.out.println("Data Loaded.");			
+			System.out.println(Constants.LOADED_DATA);
 		}
 		else if(args[0].contains("+")){
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_DATA);
 			try {
 
 			String newStudentName = args[0].substring(1);
 	        Date currentDate = new Date();
-	        String dataFormatPattern  = "dd/mm/yyyy-hh:mm:ss a";
+	        String dataFormatPattern  = Constants.DATE_FORMATE;
 	        DateFormat dateFormat = new SimpleDateFormat(dataFormatPattern );
 	        String formattedDate= dateFormat.format(currentDate);
-				fileWriter(", "+newStudentName+"\nList last updated on "+formattedDate);
+				fileWriter(", "+newStudentName+Constants.LAST_UPDATE+formattedDate);
 			} catch (Exception e){
 				System.out.println(e);
 			}
 							
-			System.out.println("Data Loaded.");	
+			System.out.println(Constants.LOADED_DATA);
 		}
 		else if(args[0].contains("?")) 
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constants.LOADING_DATA);
 			String studentData = FileReader();
 			String i[] = studentData.split(",");
 			boolean found = false;
-			String t = args[0].substring(1);
-			for(int idx = 0; idx<i.length && !found; idx++) {
-				if(i[idx].equals(t)) {
-					System.out.println("We found it!");
+
+			for(int idx = 0; idx<FileReader().split(Constants.SPLIT).length && !found; idx++) {
+				if(FileReader().split(Constants.SPLIT)[idx].equals(args[0].substring(1))) {
+					System.out.println(Constants.FOUND);
 					found=true;
 				}
 			}
 
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.LOADED_DATA);
 		}
 		else if(args[0].contains("c")) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING_DATA);
 			try {
 				String studentData = FileReader();
 			char characters[] = studentData .toCharArray();
@@ -112,7 +110,7 @@ public class StudentList {
 			} catch (Exception e){
 				System.out.println(e);
 			}
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.LOADED_DATA);
 		}
 		else{
 			System.out.println("!Invalid Argument .");
