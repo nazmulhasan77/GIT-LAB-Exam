@@ -35,6 +35,12 @@ public class StudentList {
 	public static void main(String[] args) {
 
 //		Check arguments
+
+		if(args.length<1)
+		{
+			System.out.println(Constants.INVALID);
+
+		}
 		if(args[0].equals("a")) {
 			System.out.println(Constants.LOADING_DATA);
 			for(String name : FileReader().split(Constants.SPLIT)) {
