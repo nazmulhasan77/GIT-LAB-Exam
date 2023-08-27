@@ -91,22 +91,9 @@ public class StudentList {
 			System.out.println(Constants.LOADING_DATA);
 			try {
 				String studentData = FileReader();
-			char characters[] = studentData .toCharArray();
-			boolean found = false;
-			int count=0;
-			for(char character:characters) {
-				if(character ==' ')
-				{
-					if (!found) {
-						count++;
-						found =true;
-					}
-					else {
-						found=false;
-					}
-				}
-			}
-			System.out.println(count +" word(s) found ");
+				String studentName[] = studentData.split(Constants.SPLIT);
+
+				System.out.println(studentName.length +Constants.WORDS_FOUND );
 			} catch (Exception e){
 				System.out.println(e);
 			}
