@@ -83,7 +83,6 @@ public class StudentList {
 					found=true;
 				}
 			}
-
 			System.out.println(Constants.LOADED_DATA);
 		}
 		else if(args[0].contains("c")) 
@@ -102,6 +101,7 @@ public class StudentList {
 		else{
 			System.out.println("!Invalid Argument .");
 		}
+
 
 	}
 }
