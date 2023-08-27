@@ -37,9 +37,7 @@ public class StudentList {
 //		Check arguments
 		if(args[0].equals("a")) {
 			System.out.println(Constants.LOADING_DATA);
-			String studentData = FileReader();
-			String studentName[] = studentData.split(",");
-			for(String name : studentName) {
+			for(String name : FileReader().split(Constants.SPLIT)) {
 				System.out.println(name);
 			}
 			System.out.println(Constants.LOADED_DATA);
@@ -78,9 +76,9 @@ public class StudentList {
 			String studentData = FileReader();
 			String i[] = studentData.split(",");
 			boolean found = false;
-			String t = args[0].substring(1);
-			for(int idx = 0; idx<i.length && !found; idx++) {
-				if(i[idx].equals(t)) {
+
+			for(int idx = 0; idx<FileReader().split(Constants.SPLIT).length && !found; idx++) {
+				if(FileReader().split(Constants.SPLIT)[idx].equals(args[0].substring(1))) {
 					System.out.println(Constants.FOUND);
 					found=true;
 				}
