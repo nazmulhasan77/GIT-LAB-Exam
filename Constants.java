@@ -8,4 +8,5 @@ public class Constants {
     public static final String FOUND = "We found it!";
     public static final String LAST_UPDATE = "\nList last updated on";
     public static final String SPLIT =",";
+    public static final String WORDS_FOUND = " word(s) found";
 }
