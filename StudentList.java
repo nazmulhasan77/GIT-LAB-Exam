@@ -3,6 +3,7 @@ import java.text.*;
 import java.util.*;
 public class StudentList {
 
+	// Read the content from the File
 	public static String FileReader()
 	{
 		String studentData = null;
@@ -19,6 +20,7 @@ public class StudentList {
 		return studentData;
 
 	}
+	// Write content to the file
 	public static void fileWriter(String content)
 	{
 		try{BufferedWriter writer = new BufferedWriter(
@@ -39,7 +41,6 @@ public class StudentList {
 		if(args.length<1)
 		{
 			System.out.println(Constants.INVALID);
-
 		}
 		if(args[0].equals("a")) {
 			System.out.println(Constants.LOADING_DATA);
@@ -48,6 +49,7 @@ public class StudentList {
 			}
 			System.out.println(Constants.LOADED_DATA);
 		}
+		// Display a random student's name
 		else if(args[0].equals("r")) 
 		{
 			System.out.println(Constants.LOADING_DATA);
@@ -60,6 +62,7 @@ public class StudentList {
 
 			System.out.println(Constants.LOADED_DATA);
 		}
+		//Adding Date with formatting
 		else if(args[0].contains("+")){
 			System.out.println(Constants.LOADING_DATA);
 			try {
@@ -76,7 +79,9 @@ public class StudentList {
 							
 			System.out.println(Constants.LOADED_DATA);
 		}
-		else if(args[0].contains("?")) 
+
+		// Search for a student by name
+		else if(args[0].contains("?"))
 		{
 			System.out.println(Constants.LOADING_DATA);
 			String studentData = FileReader();
@@ -91,7 +96,8 @@ public class StudentList {
 			}
 			System.out.println(Constants.LOADED_DATA);
 		}
-		else if(args[0].contains("c")) 
+		// Count the number of words in the student data
+		else if(args[0].contains("c"))
 		{
 			System.out.println(Constants.LOADING_DATA);
 			try {
