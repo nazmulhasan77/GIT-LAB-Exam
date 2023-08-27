@@ -13,8 +13,12 @@ public class StudentList {
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
 			String i[] = r.split(",");			
-			for(String j : i) { System.out.println(j); }
-			} catch (Exception e){} 
+			for(String j : i) {
+				System.out.println(j);
+			}
+			} catch (Exception e){
+
+			}
 			System.out.println("Data Loaded.");
 		}
 		else if(args[0].equals("r")) 
@@ -30,7 +34,9 @@ public class StudentList {
 			Random x = new Random();
 				int y = x.nextInt();
 					System.out.println(i[y]);
-			} catch (Exception e){} 
+			} catch (Exception e){
+				System.out.println(e);
+			}
 			System.out.println("Data Loaded.");			
 		}
 		else if(args[0].contains("+")){
@@ -45,7 +51,9 @@ public class StudentList {
 	        String fd= dateFormat.format(d);
 			s.write(", "+t+"\nList last updated on "+fd);
 			s.close();
-			} catch (Exception e){}
+			} catch (Exception e){
+				System.out.println(e);
+			}
 							
 			System.out.println("Data Loaded.");	
 		}
@@ -63,10 +71,12 @@ public class StudentList {
 			for(int idx = 0; idx<i.length && !done; idx++) {
 				if(i[idx].equals(t)) {
 					System.out.println("We found it!");
-						done=true;
+					done=true;
 				}
 			}
-			} catch (Exception e){} 
+			} catch (Exception e){
+				System.out.println(e);
+			}
 			System.out.println("Data Loaded.");				
 		}
 		else if(args[0].contains("c")) 
@@ -83,12 +93,19 @@ public class StudentList {
 			for(char c:a) {
 				if(c ==' ') 
 				{
-					if (!in_word) {	count++; in_word =true;	}
-					else { in_word=false;}			
+					if (!in_word) {
+						count++;
+						in_word =true;
+					}
+					else {
+						in_word=false;
+					}
 				}
 			}
 			System.out.println(count +" word(s) found " + a.length);
-			} catch (Exception e){} 
+			} catch (Exception e){
+				System.out.println(e);
+			}
 			System.out.println("Data Loaded.");				
 		}
 	}
